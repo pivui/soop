@@ -1,7 +1,7 @@
 function obj = soop_new_(objType)
     global soopNameSpace
     // find free Id
-    freeId      = soop_findFreeId(objType)
+    freeId      = soopNameSpace(objType)(3)
     //
     objAtt      = soopNameSpace(objType)(1)(2)
     objMeth     = soopNameSpace(objType)(1)(3)
@@ -17,4 +17,5 @@ function obj = soop_new_(objType)
     end
     // store object
     soopNameSpace(objType)(2)($+1) = obj
+    soopNameSpace(objType)(3) = freeId + 1
 endfunction

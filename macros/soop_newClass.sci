@@ -24,5 +24,7 @@ function soop_newClass(objType, objAtt, objMeth)
     soopNameSpace(1)($+1)       = objType
     soopNameSpace(objType)      = list()
     soopNameSpace(objType)(1)   = list(objType, objAtt, objMeth)
-    soopNameSpace(objType)(2)   = list()
+    soopNameSpace(objType)(2)   = list() // list of objects
+    soopNameSpace(objType)(3)   = 0      // identifier 
+    soopNameSpace(objType)(4)   = list() // free positions
 endfunction
