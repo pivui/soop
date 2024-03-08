@@ -1,4 +1,5 @@
 function obj = soop_getObj(objPtr)
     global soopNameSpace
-    obj     = soopNameSpace(objPtr.type)(2)(objPtr.id)
+    objPos  = soop_getObjPos(objPtr)
+    obj     = soopNameSpace(objPtr.type)(2)(objPos)
 endfunction

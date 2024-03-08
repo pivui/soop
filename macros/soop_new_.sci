@@ -16,5 +16,5 @@ function obj = soop_new_(objType)
         obj(m)  = [];//soop_methodWrap(obj.type, obj.id, m)
     end
     // store object
-    soop_storeObj(obj)
+    soopNameSpace(objType)(2)($+1) = obj
 endfunction

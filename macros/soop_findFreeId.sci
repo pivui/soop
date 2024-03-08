@@ -7,11 +7,12 @@ function freeId = soop_findFreeId(objType)
         freeId = 1
         return
     end
+    ids     = zeros(N,1)
     for i = 1:N
-        if isempty(objList(i)) then 
-            freeId = i
-            return
-        end
+        ids(i) = objList(i).id
     end
-    freeId = N + 1
+    freeId = max(ids) + 1
 endfunction
+
+
+//

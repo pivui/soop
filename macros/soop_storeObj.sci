@@ -9,12 +9,10 @@ function soop_storeObj(obj)
     //      Pierre Vuillemin - 2024
   
     global soopNameSpace
-    N = length(soopNameSpace(obj.type)(2))
-    if obj.id <= N then 
-        soopNameSpace(obj.type)(2)(obj.id) = obj
-    elseif obj.id == N + 1 then
+    objPos = soop_getObjPos(obj)
+    if isempty(objPos) then
         soopNameSpace(obj.type)(2)($+1) = obj
-    else
-        error('error storing')
+    else 
+        soopNameSpace(obj.type)(2)(objPos) = obj
     end
 endfunction
