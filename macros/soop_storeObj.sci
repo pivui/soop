@@ -11,14 +11,14 @@ function soop_storeObj(obj)
     global soopNameSpace
     [dummy, objPos] = soop_getObj(obj)
     if isempty(objPos) then
-        freePos = soopNameSpace(obj.type)(4)
+        freePos = soopNameSpace(obj.type_)(4)
         if ~isempty(freePos) then 
-            soopNameSpace(obj.type)(2)(freePos(1))  = obj
-            soopNameSpace(obj.type)(4)(1)           = null()
+            soopNameSpace(obj.type_)(2)(freePos(1))  = obj
+            soopNameSpace(obj.type_)(4)(1)           = null()
         else
-            soopNameSpace(obj.type)(2)($+1)  = obj
+            soopNameSpace(obj.type_)(2)($+1)  = obj
         end
     else 
-        soopNameSpace(obj.type)(2)(objPos) = obj
+        soopNameSpace(obj.type_)(2)(objPos) = obj
     end
 endfunction

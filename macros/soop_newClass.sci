@@ -9,7 +9,7 @@ function soop_newClass(objType, objAtt, objMeth)
     //
     //  Parameters
     //      className (string) : name of the class. Will be the type of associated objects.
-    //      listOfAttributes (list) : list of string, the attributes..
+    //      listOfAttributes (list) : list of string, the attributes. ''id_'' and ''type_'' are reserved and cannot be used.
     //      listOfMethods (list) : list of string, the methods.
     //
     //  Authors
@@ -19,6 +19,12 @@ function soop_newClass(objType, objAtt, objMeth)
     if soop_classExists(objType) then
         error('Class ''%s'' already defined', objType)
     end
+    //
+    for a = objAtt
+        if a == 'id_' | a =='type_' then 
+            error('''id_'' and ''type_'' are attributes reserved to soop. Please choose something else')
+        end
+    end
     // If not, proceed to add it to the global namespace
     global soopNameSpace 
     soopNameSpace(1)($+1)       = objType
@@ -27,4 +33,5 @@ function soop_newClass(objType, objAtt, objMeth)
     soopNameSpace(objType)(2)   = list() // list of objects
     soopNameSpace(objType)(3)   = 0      // identifier 
     soopNameSpace(objType)(4)   = list() // free positions
+    
 endfunction

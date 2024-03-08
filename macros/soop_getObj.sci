@@ -1,14 +1,16 @@
 function [obj, objPos] = soop_getObj(objPtr)
     global soopNameSpace
     // Get object position
-    objList = soopNameSpace(objPtr.type)(2)
+    objList = soopNameSpace(objPtr.type_)(2)
     objPos  = []
     obj     = []
     for i=(1:length(objList)) do
-        if (objList(i).id == objPtr.id) then
-            objPos  = i
-            obj     = objList(i)
-            return
+        if ~isempty(objList(i)) then
+            if (objList(i).id_ == objPtr.id_) then
+                objPos  = i
+                obj     = objList(i)
+                return
+            end
         end
     end
 

@@ -23,5 +23,5 @@ function objPtr = soop_new(objType)
     //      Pierre Vuillemin - 2024
   
     obj     = soop_new_(objType)
-    objPtr  = soop_newPtr(objType, obj.id)
+    objPtr  = soop_newPtr(objType, obj.id_)
 endfunction
