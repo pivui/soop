@@ -16,15 +16,15 @@ function sooplib = loadsoop ()
         sooplib  = lib(pathmacros);
     end
 
-    // Load and add help chapter
-    // ===============================================================
-    //if or(getscilabmode() == ["NW";"STD"]) then
-    //    mprintf("\tLoad help\n");
-    //    path_addchapter = pathconvert(root_tlbx+"/jar");
-    //    if ( isdir(path_addchapter) <> [] ) then
-    //        add_help_chapter(modulename, path_addchapter, %F);
-    //   end
-    //end
+//     Load and add help chapter
+//     ===============================================================
+    if or(getscilabmode() == ["NW";"STD"]) then
+        mprintf("\tLoad help\n");
+        path_addchapter = pathconvert(root_tlbx+"/jar");
+        if ( isdir(path_addchapter) <> [] ) then
+            add_help_chapter(modulename, path_addchapter, %F);
+       end
+    end
 
     // add demos
     // ===============================================================

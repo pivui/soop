@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<refentry version="5.0-subset Scilab" xml:id="soop_new" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+
+<refnamediv>
+   <refname>soop_new</refname>
+   <refpurpose>
+      New instance of some class.
+   </refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+   <title>Syntax</title>
+   <synopsis>
+      ptr = soop_new(className)
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+      <varlistentry>
+         <term>className <emphasis>(string)</emphasis></term>
+         <listitem><para>name of the associated class. It needs to be defined beforehand.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+         <term>ptr <emphasis>(soopPtr)</emphasis></term>
+         <listitem><para>pointer towards the actual object.</para></listitem>
+      </varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>The pointer is meant to be used as if it was the actual object (and it should be).      In particular:</para><simplelist type='vert' columns='1'>
+         <member><para>
+   set/get attributes works as expected ptr.attr = rhs
+   </para></member>
+         <member><para>methods must be defined somewhere with a first argument being the pointer, i.e.</para><para>       foo = function(ptr, args). It is then called as ptr.fun(args).</para></member>
+         <member><para>overloading is done through scilab, the pointer passes corresponding call to the       dedicated objects functions themselves. Use soop_storeObj() if the objects are modified       there.</para></member>
+   </simplelist>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type='vert' columns='1'>
+      <member>Pierre Vuillemin - 2024</member>
+   </simplelist>
+</refsection>
+</refentry>

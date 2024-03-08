@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<refentry version="5.0-subset Scilab" xml:id="soop_begin" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+
+<refnamediv>
+   <refname>soop_begin</refname>
+   <refpurpose>
+      Initialise variable required by soop such as its global namespace where object instances are stored. Any soop-related action will not work beforethis call.
+   </refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+   <title>Syntax</title>
+   <synopsis>
+      soop_begin()
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type='vert' columns='1'>
+      <member>Pierre Vuillemin - 2024</member>
+   </simplelist>
+</refsection>
+</refentry>

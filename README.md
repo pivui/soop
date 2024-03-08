@@ -1,6 +1,6 @@
 # Soop
 
-Poor's man attempt to mimic some object oriented programming features in Scilab.
+An attempt to mimic some object oriented programming features in Scilab.
 
 ## Example
 
@@ -22,13 +22,15 @@ re.weight = 2;
 // Defines the methods  
 deff('meow(self)','disp(msprintf(""cat %s: meow!"",self.name));');
 deff('feed(self)','self.weight = self.weight + 1;');
+// And some overloading, here <= 
+deff('out = %cat_3_cat(c1, c2)','out = c1.weight <= c2.weight');
 //
 fe.meow()       // >> "cat Felix: meow!" 
 re.meow()       // >> "cat Reglisse: meow!"
 disp(fe == re)  // >> F
 fe.feed()
 disp(fe.weight) // >> 2
-
+disp(fe <= re)  // >> T
 ```
 
 
