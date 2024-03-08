@@ -1,59 +1,46 @@
-// Copyright 2024 - Pierre Vuillemin
 //
-//
-// Copyright (C) 2008 - INRIA
-// Copyright (C) 2009 - DIGITEO
 
-// This file is released under the 3-clause BSD license. See COPYING-BSD.
+function sooplib = loadsoop ()
 
-function sopiLib = startModule()
-   TOOLBOX_NAME = 'soop';
-   TOOLBOX_TITLE = 'soop';
-  mprintf("Start " + TOOLBOX_TITLE + "\n");
+    modulename = "soop"
+    etc_tlbx  = get_absolute_file_path("soop.start");
+    etc_tlbx  = getshortpathname(etc_tlbx);
+    root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
+    mprintf("Start %s\n",modulename);
 
-  if isdef("sopiLib") then
-    warning("Toolbox skeleton library is already loaded");
-    return;
-  end
+    // Load functions library
+    // ===============================================================
+    if ( %t ) then
+        mprintf("\tLoad macros\n");
+        pathmacros = pathconvert( root_tlbx ) + "macros" + filesep();
+        sooplib  = lib(pathmacros);
+    end
 
-  etc_tlbx  = get_absolute_file_path("soop.start");
-  etc_tlbx  = getshortpathname(etc_tlbx);
-  root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
+    // Load and add help chapter
+    // ===============================================================
+    //if or(getscilabmode() == ["NW";"STD"]) then
+    //    mprintf("\tLoad help\n");
+    //    path_addchapter = pathconvert(root_tlbx+"/jar");
+    //    if ( isdir(path_addchapter) <> [] ) then
+    //        add_help_chapter(modulename, path_addchapter, %F);
+    //   end
+    //end
 
-//Load  functions library
-// =============================================================================
-  mprintf("\tLoad macros\n");
-  pathmacros = pathconvert( root_tlbx ) + "macros" + filesep();
-  sopiLib = lib(pathmacros);
+    // add demos
+    // ===============================================================
+    //if or(getscilabmode() == ["NW";"STD"]) then
+    //    mprintf("\tLoad demos\n");
+    //    pathdemos = pathconvert(root_tlbx+"/demos/nistdataset.dem.gateway.sce",%f,%t);
+    //    add_demo(modulename,pathdemos);
+    //end
 
-// load localization
-//  addlocalizationdomain(TOOLBOX_NAME, root_tlbx + "/locales");
-
-// Load and add help chapter
-// =============================================================================
-//  if or(getscilabmode() == ["NW";"STD"]) then
-//    mprintf("\tLoad help\n");
-//    path_addchapter = pathconvert(root_tlbx+"/jar");
-//    if ( isdir(path_addchapter) <> [] ) then
-//      add_help_chapter(TOOLBOX_NAME, path_addchapter, %F);
-//    end
-//  end
-
-// Load demos
-// =============================================================================
-//  if or(getscilabmode() == ["NW";"STD"]) then
-//    mprintf("\tLoad demos\n");
-//    pathdemos = pathconvert(root_tlbx+"/demos/toolbox_skeleton.dem.gateway.sce", %F, %T);
-//    add_demo(TOOLBOX_TITLE, pathdemos);
-//  end
-//
-// Load Preferences GUI
-// =============================================================================
-//  if getscilabmode() == "STD" then
-//    addModulePreferences(TOOLBOX_TITLE, root_tlbx, etc_tlbx + "toolbox_skeleton_preferences.xml");
-//  end
+    // ===============================================================
+    // A Welcome message.
+    mprintf("\tType ""help soop_xml"" to display the soop help.\n");
 
 endfunction
+sooplib = loadsoop();
+clear loadsoop;
 
-soopToolbox = startModule();
-clear startModule; // remove startModule on stack
+
+
