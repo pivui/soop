@@ -20,8 +20,8 @@ re        = soop_new('cat');
 re.name   = 'Reglisse';
 re.weight = 2;
 // Defines the methods  
-deff('meow(self)','disp(msprintf(""cat %s: meow!"",self.name));');
-deff('feed(self)','self.weight = self.weight + 1;');
+deff('cat_meow(self)','disp(msprintf(""cat %s: meow!"",self.name));');
+deff('cat_feed(self)','self.weight = self.weight + 1;');
 // And some overloading, here <= 
 deff('out = %cat_3_cat(c1, c2)','out = c1.weight <= c2.weight');
 //
